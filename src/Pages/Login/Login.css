@@ -1,0 +1,12 @@
+.form-hldr {
+    text-align: center;
+}
+
+.login-form {
+    padding: 10% 40%;
+    align-self: center;
+}
+
+.signup-link {
+    text-decoration: none;
+}
