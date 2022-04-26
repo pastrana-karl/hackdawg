@@ -4,25 +4,34 @@ import { Navigate, Link, useLocation } from 'react-router-dom';
 import './Login.css';
 
 function Login() {
+
+  // Initialization of the login form values
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
 
+  // Retrieving of singup form values
   const { state } = useLocation();
+
+  // Initialization of valid state and redirect state
   const [valid, setValid] = useState(false);
   const [redirect, setRedirect] = useState(false);
+
+  // Function to handle on submit form event
   const handleLogin = (e) => {
     e.preventDefault();
 
+    // Validation if the form fields have values
     try {
       if (values.email === state.email && values.password === state.password) {
         setValid(true);
-      } 
+      }
     } catch (err) {
       alert('Your email or password is wrong.');
     }
 
+    // Setting redirect to true
     setRedirect(true);
   }
 

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import './Signup.css';
 
 function Signup() {
+  // Initialization of singup form values
   const [values, setValues] = useState({
     firstname: "",
     lastname: "",
@@ -17,25 +18,45 @@ function Signup() {
     gender: "",
   });
 
+  // Initialization of navigate value to send date from signup form to login form for validation when logging in
   const navigate = useNavigate();
+
+  // Initialization of validition state and submit state
   const [valid, setValid] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Function to handle singup form on submit event
   const handleLogin = (e) => {
     e.preventDefault();
-    
+
     setSubmitted(true);
+
+    // Initialization of validation variables for restriction on the birthdate field
     var year = new Date().getFullYear();
+    var month = new Date().getMonth() + 1;
+    var date = new Date().getDate();
     var validYear = year - 18;
     var birthYear = values.birthdate.slice(0, 4);
+    var birthMonth = values.birthdate.slice(5, 7);
+    var birthDate = values.birthdate.slice(8, 10);
 
+    // Formating condition for the current month value retrieved
+    if (month < 10) {
+      month = '0' + month;
+    }
+
+    // Validation if the form fields have values and birthdate is within the age restriction
     try {
       if (birthYear > validYear) {
-        setValues({ ...values, birthdate: "" })
+        setValues({ ...values, birthdate: "" });
+      } else if (birthYear.toString() === validYear.toString() && birthMonth > month) {
+        setValues({ ...values, birthdate: "" });
+      } else if (birthYear.toString() === validYear.toString() && birthMonth.toString() === month.toString() && birthDate > date) {
+        setValues({ ...values, birthdate: "" });
       } else {
         if (values.firstname && values.lastname && values.email && values.password && values.birthdate && values.gender) {
           setValid(true);
-          Swal.fire('Success', "You've singed up successfully!", 'success')
+          Swal.fire('Success', "You've singed up successfully!", 'success');
           navigate('/', { state: values });
         }
       }
@@ -43,6 +64,7 @@ function Signup() {
       Swal.fire('Error', "Something is wrong.", 'error')
     }
   }
+
   return (
     <>
       <div className="form-hldr">
@@ -108,7 +130,7 @@ function Signup() {
                 disabled={valid}
                 required
               />
-              {submitted === true && !values.birthdate && <span>Select your birth date.</span>}
+              {submitted === true && !values.birthdate && <span>Select your birth date (User must be 18 years old or above).</span>}
             </Form.Group>
 
             <Form.Group className="mb-3">

@@ -10,9 +10,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route exact path = '/' element = { <Login/> } />
-        <Route path = '/dummy' element = { <Dummy /> } />
-        <Route path = '/signup' element = { <Signup /> } />
+        {/* Path for the the login page */}
+        <Route exact path='/' element={<Login />} />
+
+        {/* Path for the dummy page */}
+        <Route path='/dummy' element={<Dummy />} />
+
+        {/* Path for the signup page */}
+        <Route path='/signup' element={<Signup />} />
       </Routes>
     </Router>
   );
