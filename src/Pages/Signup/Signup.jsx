@@ -62,7 +62,7 @@ function Signup() {
           if (values.firstname && values.lastname && values.email && values.password && values.birthdate && values.gender) {
             setValid(true);
             Swal.fire('Success', "You've singed up successfully!", 'success');
-            navigate('/', { state: values });
+            navigate('/hackdawg', { state: values });
           }
         }
       } catch (err) {
@@ -183,7 +183,7 @@ function Signup() {
             </Form.Group>
 
             <Form.Group className='mb-3'>
-              <Link className='signup-back-link' to="/">Back</Link>
+              <Link className='signup-back-link' to="/hackdawg">Back</Link>
             </Form.Group>
 
             <div className="d-grid gap-2">

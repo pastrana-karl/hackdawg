@@ -40,7 +40,7 @@ function Login() {
 
   return (
     <>
-      {redirect === true && valid === true && <Navigate replace to="/dummy" />}
+      {redirect === true && valid === true && <Navigate replace to="/hackdawg/dummy" />}
       <div className='hack-img'>
         <img src='https://res.cloudinary.com/karlstorage/image/upload/v1651646277/free-img/nlur2ofdggiculxtseko.png' alt='hacker-banner' />
       </div>
@@ -73,7 +73,7 @@ function Login() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Link className="signup-link" to="/signup">Sign up</Link>
+              <Link className="signup-link" to="/hackdawg/signup">Sign up</Link>
             </Form.Group>
 
 

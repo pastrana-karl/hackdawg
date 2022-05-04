@@ -11,13 +11,13 @@ function App() {
     <Router>
       <Routes>
         {/* Path for the the login page */}
-        <Route exact path='/' element={<Login />} />
+        <Route exact path='/hackdawg' element={<Login />} />
 
         {/* Path for the dummy page */}
-        <Route path='/dummy' element={<Dummy />} />
+        <Route path='/hackdawg/dummy' element={<Dummy />} />
 
         {/* Path for the signup page */}
-        <Route path='/signup' element={<Signup />} />
+        <Route path='/hackdawg/signup' element={<Signup />} />
       </Routes>
     </Router>
   );

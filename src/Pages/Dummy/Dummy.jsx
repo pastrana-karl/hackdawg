@@ -12,7 +12,7 @@ function Dummy() {
                     <h1>ENTER CODE</h1>
                 </div>
                 {/* Back button to go back on the login page */}
-                <Link className="dummy-back-link" to="/">Back</Link>
+                <Link className="dummy-back-link" to="/hackdawg">Back</Link>
             </div>
 
         </>
