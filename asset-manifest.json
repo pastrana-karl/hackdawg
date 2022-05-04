@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/hackdawg/static/css/main.e0cd2326.css",
+    "main.css": "/hackdawg/static/css/main.733a1e89.css",
     "main.js": "/hackdawg/static/js/main.a84cfb1f.js",
     "static/media/roboto-all-500-normal.woff": "/hackdawg/static/media/roboto-all-500-normal.52cb737b682eb9661ee1.woff",
     "static/media/roboto-all-700-normal.woff": "/hackdawg/static/media/roboto-all-700-normal.ef6d1d09b20b877fee4e.woff",
@@ -35,11 +35,11 @@
     "static/media/roboto-greek-ext-300-normal.woff2": "/hackdawg/static/media/roboto-greek-ext-300-normal.04e05839d6a35e046c13.woff2",
     "static/media/roboto-greek-ext-700-normal.woff2": "/hackdawg/static/media/roboto-greek-ext-700-normal.9674bc0ae12c2551d9d1.woff2",
     "index.html": "/hackdawg/index.html",
-    "main.e0cd2326.css.map": "/hackdawg/static/css/main.e0cd2326.css.map",
+    "main.733a1e89.css.map": "/hackdawg/static/css/main.733a1e89.css.map",
     "main.a84cfb1f.js.map": "/hackdawg/static/js/main.a84cfb1f.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0cd2326.css",
+    "static/css/main.733a1e89.css",
     "static/js/main.a84cfb1f.js"
   ]
 }
