@@ -24,6 +24,7 @@ function Signup() {
   // Initialization of validition state and submit state
   const [valid, setValid] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [format, setFormat] = useState(true);
 
   // Function to handle singup form on submit event
   const handleLogin = (e) => {
@@ -31,48 +32,56 @@ function Signup() {
 
     setSubmitted(true);
 
-    // Initialization of validation variables for restriction on the birthdate field
-    var year = new Date().getFullYear();
-    var month = new Date().getMonth() + 1;
-    var date = new Date().getDate();
-    var validYear = year - 18;
-    var birthYear = values.birthdate.slice(0, 4);
-    var birthMonth = values.birthdate.slice(5, 7);
-    var birthDate = values.birthdate.slice(8, 10);
+    // Password validation if it follows format
+    if (values.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-])/)) {
+      setFormat(true);
+      
+      // Initialization of validation variables for restriction on the birthdate field
+      var year = new Date().getFullYear();
+      var month = new Date().getMonth() + 1;
+      var date = new Date().getDate();
+      var validYear = year - 18;
+      var birthYear = values.birthdate.slice(0, 4);
+      var birthMonth = values.birthdate.slice(5, 7);
+      var birthDate = values.birthdate.slice(8, 10);
 
-    // Formating condition for the current month value retrieved
-    if (month < 10) {
-      month = '0' + month;
-    }
-
-    // Validation if the form fields have values and birthdate is within the age restriction
-    try {
-      if (birthYear > validYear) {
-        setValues({ ...values, birthdate: "" });
-      } else if (birthYear.toString() === validYear.toString() && birthMonth > month) {
-        setValues({ ...values, birthdate: "" });
-      } else if (birthYear.toString() === validYear.toString() && birthMonth.toString() === month.toString() && birthDate > date) {
-        setValues({ ...values, birthdate: "" });
-      } else {
-        if (values.firstname && values.lastname && values.email && values.password && values.birthdate && values.gender) {
-          setValid(true);
-          Swal.fire('Success', "You've singed up successfully!", 'success');
-          navigate('/', { state: values });
-        }
+      // Formating condition for the current month value retrieved
+      if (month < 10) {
+        month = '0' + month;
       }
-    } catch (err) {
-      Swal.fire('Error', "Something is wrong.", 'error')
+
+      // Validation if the form fields have values and birthdate is within the age restriction
+      try {
+        if (birthYear > validYear) {
+          setValues({ ...values, birthdate: "" });
+        } else if (birthYear.toString() === validYear.toString() && birthMonth > month) {
+          setValues({ ...values, birthdate: "" });
+        } else if (birthYear.toString() === validYear.toString() && birthMonth.toString() === month.toString() && birthDate > date) {
+          setValues({ ...values, birthdate: "" });
+        } else {
+          if (values.firstname && values.lastname && values.email && values.password && values.birthdate && values.gender) {
+            setValid(true);
+            Swal.fire('Success', "You've singed up successfully!", 'success');
+            navigate('/', { state: values });
+          }
+        }
+      } catch (err) {
+        Swal.fire('Error', "Something is wrong.", 'error')
+      }
+    } else {
+      setFormat(false);
+      setValues({ ...values, password: "" });
     }
   }
 
   return (
     <>
-    <div className="bgstyle"></div>
+      <div className="bgstyle"></div>
       <div className="form-hldr">
         <div className="signup-form">
           <Form onSubmit={handleLogin}>
             <Form.Group className="mb-3">
-              <Form.Control className='form-title'
+              <Form.Control
                 type='text'
                 placeholder='First name'
                 name='firstname'
@@ -83,7 +92,7 @@ function Signup() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-title'
+              <Form.Control
                 type='text'
                 placeholder='Last name'
                 name='lastname'
@@ -94,7 +103,7 @@ function Signup() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-title'
+              <Form.Control
                 type='email'
                 placeholder='Email address'
                 name='email'
@@ -105,25 +114,27 @@ function Signup() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control className='form-title'
+              <Form.Control
                 type='password'
                 placeholder='Password'
                 name='password'
                 value={values.password}
+                minLength='8'
                 onChange={(e) => setValues({ ...values, password: e.target.value })}
                 disabled={valid}
                 required
               />
+              {submitted === true && format === false && <span>Password must contain Uppercase letters and special symbols <br /> Symbols Allowed: (!@#$%^&=+-).</span>}
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label  className='form-title'>Date of Birth</Form.Label>
-              <Tooltip style = {{color:'white'}}  title="User must be 18 years old or above.">
+              <Form.Label><span className="signup-label">Date of Birth</span></Form.Label>
+              <Tooltip style={{ color: 'white' }} title="User must be 18 years old or above.">
                 <IconButton>
-                  <InfoIcon/>
+                  <InfoIcon />
                 </IconButton>
               </Tooltip>
-              <Form.Control  className='form-title'
+              <Form.Control
                 type='date'
                 name='birthdate'
                 value={values.birthdate}
@@ -135,10 +146,11 @@ function Signup() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label className='form-title'>Gender</Form.Label>
+              <Form.Label><span className="signup-label">Gender</span></Form.Label>
               <div>{submitted === true && !values.gender && <span>Please choose your gender.</span>}</div>
               <div>
-                <Form.Check className='gender'
+                <Form.Check
+                  className='gender'
                   inline
                   label="Male"
                   name="gender"
@@ -147,7 +159,8 @@ function Signup() {
                   onChange={() => setValues({ ...values, gender: 'male' })}
                   disabled={valid}
                 />
-                <Form.Check className='gender'
+                <Form.Check
+                  className='gender'
                   inline
                   label="Female"
                   name="gender"
@@ -156,7 +169,8 @@ function Signup() {
                   onChange={() => setValues({ ...values, gender: 'female' })}
                   disabled={valid}
                 />
-                <Form.Check className='gender'
+                <Form.Check
+                  className='gender'
                   inline
                   label="Others (LGBTQIA+)"
                   name="gender"
@@ -169,7 +183,7 @@ function Signup() {
             </Form.Group>
 
             <Form.Group className='mb-3'>
-              <Link className='back-link' to="/">Back</Link>
+              <Link className='signup-back-link' to="/">Back</Link>
             </Form.Group>
 
             <div className="d-grid gap-2">

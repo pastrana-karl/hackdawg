@@ -26,7 +26,10 @@ function Login() {
     try {
       if (values.email === state.email && values.password === state.password) {
         setValid(true);
+      } else {
+        alert('Your email or password is wrong.');
       }
+
     } catch (err) {
       alert('Your email or password is wrong.');
     }
@@ -37,14 +40,14 @@ function Login() {
 
   return (
     <>
-    {redirect === true && valid === true && <Navigate replace to="/dummy" />}
-    {/* try effect */} 
-    <img className='hack-img' src='https://res.cloudinary.com/karlstorage/image/upload/v1651646277/free-img/nlur2ofdggiculxtseko.png'></img>
-    <div className='login-header'>
-    <h1>Welcome Hackers</h1>
-    </div>
-    {/* eeeeend */}
-    <div className="bgstyle"></div>
+      {redirect === true && valid === true && <Navigate replace to="/dummy" />}
+      <div className='hack-img'>
+        <img src='https://res.cloudinary.com/karlstorage/image/upload/v1651646277/free-img/nlur2ofdggiculxtseko.png' alt='hacker-banner' />
+      </div>
+      <div className='login-header'>
+        <h1>Welcome Hackers</h1>
+      </div>
+      <div className="bgstyle"></div>
       <div className="form-hldr">
         <div className="login-form">
           <Form onSubmit={handleLogin}>

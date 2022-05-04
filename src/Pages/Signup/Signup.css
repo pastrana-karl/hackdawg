@@ -7,15 +7,13 @@
     align-self: center;
 }
 
-
-
-.back-link {
+.signup-back-link {
     text-decoration: none;
     color: white;
     font-weight: bolder;
 }
 
-.back-link:hover {
+.signup-back-link:hover {
     color: #ff8d00;
 }
 
@@ -33,27 +31,36 @@ span {
     margin-bottom: 15px;
 }
 
-.form-title{
-    background-color: black;
-    text-align: center;
+.signup-label {
     color: white;
     font-weight: 800;
-    letter-spacing:4px;
 }
 
-.gender{
-    font-weight: 300;
+.gender {
+    font-weight: 400;
     color: white;
 }
 
-.mb-back{
+.mb-back {
     width: 100%;
     font-weight: 500;
 }
 
-.button-sign{
+.button-sign {
     background-color: white;
     margin-bottom: 20px;
     color: black;
     font-weight: 500;
+}
+
+@media only screen and (max-width: 1024px) {
+    .signup-form {
+        padding: 20%;
+    }
+}
+
+@media only screen and (max-width: 412px) {
+    .signup-form {
+        padding: 15% 20%;
+    }
 }

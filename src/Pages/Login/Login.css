@@ -1,81 +1,49 @@
 .form-hldr {
-    text-align: center;
+  text-align: center;
 }
 
 .login-form {
-    padding: 5% 40%;
-    align-self: center;
+  padding: 5% 40%;
+  align-self: center;
 }
 
 .signup-link {
-    text-decoration: none;
-    color: white;
-    font-weight: bolder;
-} 
-
-.signup-link:hover{
-    color: #ff8d00;
+  text-decoration: none;
+  color: white;
+  font-weight: bolder;
 }
 
-.button-sign{
-    font-weight:bold;
+.signup-link:hover {
+  color: #ff8d00;
 }
 
-.login-header{
-    font-size: 40px;
-    color: white;
-    text-align: center;
-} 
-
-.hack-img{
-    width:10%;
-    height:10%;
-    margin-left: 45%;
-    margin-top: 5%;
+.button-sign {
+  font-weight: bold;
 }
 
-.bgstyle {
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    right: -50%;
-    bottom: -50%;
-    width: 200%;
-    height: 200vh;
-    z-index: -1;
-    background: transparent url('http://assets.iceable.com/img/noise-transparent.png') repeat 0 0;
-    background-repeat: repeat;
-    animation: bgstyle-animation .2s infinite;
-    opacity: .9;
-    visibility: visible;
-  }
+.login-header {
+  font-size: 40px;
+  color: white;
+  text-align: center;
+}
 
-  @keyframes bgstyle-animation {
-      0% { transform: translate(0,0) }
-      10% { transform: translate(-5%,-5%) }
-      20% { transform: translate(-10%,5%) }
-      30% { transform: translate(5%,-10%) }
-      40% { transform: translate(-5%,15%) }
-      50% { transform: translate(-10%,5%) }
-      60% { transform: translate(15%,0) }
-      70% { transform: translate(0,10%) }
-      80% { transform: translate(-15%,0) }
-      90% { transform: translate(10%,5%) }
-      100% { transform: translate(5%,0) }
-  }
-/* tryyyyyyy */
- 
+.hack-img {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.hack-img img {
+  width: 10%;
+  height: 10%;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 
-h1 {
+.login-header h1 {
   font-size: calc(5px + 10vh);
   line-height: calc(20px + 20vh);
-/*   text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-    0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092;
-  color: #fccaff; */
   text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
-    color: #fff6a9;
-  /* font-family: "Sacramento", cursive; */
+  color: #fff6a9;
   text-align: center;
   animation: blink 12s infinite;
   -webkit-animation: blink 5s infinite;
@@ -83,6 +51,7 @@ h1 {
 
 
 @-webkit-keyframes blink {
+
   20%,
   24%,
   55% {
@@ -98,15 +67,13 @@ h1 {
   54%,
   56%,
   100% {
-/*     color: #fccaff;
-    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
-  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     color: #fff6a9;
   }
 }
 
 @keyframes blink {
+
   20%,
   24%,
   55% {
@@ -122,10 +89,47 @@ h1 {
   54%,
   56%,
   100% {
-/*     color: #fccaff;
-    text-shadow: 0 0 5px #f562ff, 0 0 15px #f562ff, 0 0 25px #f562ff,
-      0 0 20px #f562ff, 0 0 30px #890092, 0 0 80px #890092, 0 0 80px #890092; */
-  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
     color: #fff6a9;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .login-header h1 {
+    font-size: 80px;
+  }
+
+  .login-form {
+    padding: 0% 20%;
+  }
+
+  .hack-img {
+    text-align: center;
+    margin-top: 15%;
+  }
+
+  .hack-img img {
+    width: 20%;
+    height: 20%;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  .login-header h1 {
+    font-size: 35px;
+  }
+
+  .login-form {
+    padding: 0% 20%;
+  }
+
+  .hack-img {
+    text-align: center;
+    margin-top: 15%;
+  }
+
+  .hack-img img {
+    width: 45%;
+    height: 45%;
   }
 }

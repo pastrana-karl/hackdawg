@@ -1,3 +1,7 @@
+# hackdawg
+
+Simple web application with forms and validation output for ITELEC4C using React Js.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
