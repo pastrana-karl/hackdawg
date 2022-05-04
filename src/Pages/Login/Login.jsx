@@ -37,7 +37,14 @@ function Login() {
 
   return (
     <>
-      {redirect === true && valid === true && <Navigate replace to="/dummy" />}
+    {redirect === true && valid === true && <Navigate replace to="/dummy" />}
+    {/* try effect */} 
+    <img className='hack-img' src='https://res.cloudinary.com/karlstorage/image/upload/v1651646277/free-img/nlur2ofdggiculxtseko.png'></img>
+    <div className='login-header'>
+    <h1>Welcome Hackers</h1>
+    </div>
+    {/* eeeeend */}
+    <div className="bgstyle"></div>
       <div className="form-hldr">
         <div className="login-form">
           <Form onSubmit={handleLogin}>
@@ -66,8 +73,9 @@ function Login() {
               <Link className="signup-link" to="/signup">Sign up</Link>
             </Form.Group>
 
+
             <div className="d-grid gap-2">
-              <Button variant="success" type="submit" size="lg">Log In</Button>
+              <Button className='button-sign' variant="success" type="submit" size="lg">Log In</Button>
             </div>
           </Form>
         </div>

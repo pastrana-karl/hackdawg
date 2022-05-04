@@ -67,11 +67,12 @@ function Signup() {
 
   return (
     <>
+    <div className="bgstyle"></div>
       <div className="form-hldr">
         <div className="signup-form">
           <Form onSubmit={handleLogin}>
             <Form.Group className="mb-3">
-              <Form.Control
+              <Form.Control className='form-title'
                 type='text'
                 placeholder='First name'
                 name='firstname'
@@ -82,7 +83,7 @@ function Signup() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control
+              <Form.Control className='form-title'
                 type='text'
                 placeholder='Last name'
                 name='lastname'
@@ -93,7 +94,7 @@ function Signup() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control
+              <Form.Control className='form-title'
                 type='email'
                 placeholder='Email address'
                 name='email'
@@ -104,7 +105,7 @@ function Signup() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Control
+              <Form.Control className='form-title'
                 type='password'
                 placeholder='Password'
                 name='password'
@@ -116,13 +117,13 @@ function Signup() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Date of Birth</Form.Label>
-              <Tooltip title="User must be 18 years old or above.">
+              <Form.Label  className='form-title'>Date of Birth</Form.Label>
+              <Tooltip style = {{color:'white'}}  title="User must be 18 years old or above.">
                 <IconButton>
-                  <InfoIcon />
+                  <InfoIcon/>
                 </IconButton>
               </Tooltip>
-              <Form.Control
+              <Form.Control  className='form-title'
                 type='date'
                 name='birthdate'
                 value={values.birthdate}
@@ -134,10 +135,10 @@ function Signup() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Gender</Form.Label>
+              <Form.Label className='form-title'>Gender</Form.Label>
               <div>{submitted === true && !values.gender && <span>Please choose your gender.</span>}</div>
               <div>
-                <Form.Check
+                <Form.Check className='gender'
                   inline
                   label="Male"
                   name="gender"
@@ -146,7 +147,7 @@ function Signup() {
                   onChange={() => setValues({ ...values, gender: 'male' })}
                   disabled={valid}
                 />
-                <Form.Check
+                <Form.Check className='gender'
                   inline
                   label="Female"
                   name="gender"
@@ -155,7 +156,7 @@ function Signup() {
                   onChange={() => setValues({ ...values, gender: 'female' })}
                   disabled={valid}
                 />
-                <Form.Check
+                <Form.Check className='gender'
                   inline
                   label="Others (LGBTQIA+)"
                   name="gender"
@@ -165,14 +166,14 @@ function Signup() {
                   disabled={valid}
                 />
               </div>
-            </Form.Group >
+            </Form.Group>
 
-            <Form.Group className="mb-3">
-              <Link className="back-link" to="/">Back</Link>
+            <Form.Group className='mb-3'>
+              <Link className='back-link' to="/">Back</Link>
             </Form.Group>
 
             <div className="d-grid gap-2">
-              <Button variant="success" type="submit" size="lg" disabled={valid}>Sign up</Button>
+              <Button className='button-sign' variant="success" type="submit" size="lg" disabled={valid}>Sign up</Button>
             </div>
           </Form>
         </div>
